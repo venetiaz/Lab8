@@ -51,12 +51,19 @@ public class CustomListTest {
         assertEquals(true, list.hasCity(city));
     }
 
+    /**
+     * create a city
+     * try to delete, expects an exception
+     * add a city, check if city is indeed in the list
+     * attempt to delete it from the list
+     * checks if city is no longer in list
+     */
     @Test void testDeleteCity(){
         list = MockCityList();
         City city = new City("Red Deer", "AB");
         assertThrows( IllegalArgumentException.class, () -> { list.deleteCity(city); });
 
-        list.add(city);
+        list.addCity(city);
         assertEquals(true, list.hasCity(city));
         list.deleteCity(city);
         assertEquals(false, list.hasCity(city));

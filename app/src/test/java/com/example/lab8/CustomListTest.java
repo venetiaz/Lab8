@@ -69,4 +69,23 @@ public class CustomListTest {
         assertEquals(false, list.hasCity(city));
 
     }
+
+    /**
+     * creates city
+     *
+     * checks if list has 0 cities
+     * adds city to list
+     * checks if list has 1 city
+     * deletes city
+     * checks if list has 0 cities again
+     */
+    @Test void countCities(){
+        list = MockCityList();
+        City city = new City("Medicine Hat", "AB");
+        assertEquals(0, list.countCities());
+        list.addCity(city);
+        assertEquals(1, list.countCities());
+        list.deleteCity(city);
+        assertEquals(0, list.countCities());
+    }
 }
